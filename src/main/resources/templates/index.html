@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-
-    <title>Larp Char Tool</title>
-    <!-- next line looks like a comment but is an include -->
-    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
-</head>
+<div th:replace="~{fragments/header :: header}"></div>
 <body>
 <div class="container">
-    <!-- next line looks like a comment but is an include -->
-    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:replace="~{fragments/navigation :: navigation}"></div>
     <div class="jumbotron">
         <div class="row text-center">
             <div class="">

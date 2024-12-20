@@ -151,7 +151,7 @@ public class PdfCharacterSheetWriter implements CharacterSheetWriter {
             }
             table.addCell(pdfPCell);
 
-            pdfPCell = new PdfPCell(new Phrase(visit.getConvention().getFinish().toString()));
+            pdfPCell = new PdfPCell(new Phrase(visit.getConvention().getEnding().toString()));
             pdfPCell.setHorizontalAlignment(Element.ALIGN_CENTER);
             if (even) {
                 pdfPCell.setBackgroundColor(BaseColor.LIGHT_GRAY);

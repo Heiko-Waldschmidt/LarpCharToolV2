@@ -75,7 +75,7 @@ public class CreatePDFTest {
         convention.setTitle("Convention 1");
         convention.setDf(false);
         convention.setStart(LocalDate.of(2000, 1, 1));
-        convention.setFinish(LocalDate.of(2000, 12, 31));
+        convention.setEnding(LocalDate.of(2000, 12, 31));
         assertNull(convention.getId()); //null before save
         conventionRepository.save(convention);
         assertNotNull(convention.getId()); // not null after save
@@ -131,7 +131,7 @@ public class CreatePDFTest {
         convention.setTitle(conName);
         convention.setDf(df);
         convention.setStart(start);
-        convention.setFinish(end);
+        convention.setEnding(end);
         assertNull(convention.getId()); //null before save
         conventionRepository.save(convention);
 

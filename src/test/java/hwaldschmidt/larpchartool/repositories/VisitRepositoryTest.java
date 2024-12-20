@@ -58,7 +58,7 @@ public class VisitRepositoryTest {
         convention.setTitle("Title");
         convention.setDf(false);
         convention.setStart(LocalDate.of(2000, 1, 1));
-        convention.setFinish(LocalDate.of(2000, 12, 31));
+        convention.setEnding(LocalDate.of(2000, 12, 31));
         assertNull(convention.getId()); //null before save
         conventionRepository.save(convention);
         assertNotNull(convention.getId()); // not null after save

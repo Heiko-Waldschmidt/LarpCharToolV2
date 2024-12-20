@@ -33,7 +33,7 @@ public class Convention {
 
     // Creates a converter for string to localeDate conversion. Needed since I use LocalDate
     @Column(nullable=false)
-    private LocalDate finish; // "end" is a reserved word in h2 databases
+    private LocalDate ending; // "end" is a reserved word in h2 databases
 
     private boolean df = false;
 
@@ -77,12 +77,12 @@ public class Convention {
         this.start = start;
     }
 
-    public LocalDate getFinish() {
-        return finish;
+    public LocalDate getEnding() {
+        return ending;
     }
 
-    public void setFinish(LocalDate finish) {
-        this.finish = finish;
+    public void setEnding(LocalDate ending) {
+        this.ending = ending;
     }
 
     public List<Visit> getVisits() {
@@ -105,7 +105,7 @@ public class Convention {
         if (!Objects.equals(version, that.version)) return false;
         if (!Objects.equals(title, that.title)) return false;
         if (!Objects.equals(start, that.start)) return false;
-        return Objects.equals(finish, that.finish);
+        return Objects.equals(ending, that.ending);
     }
 
     @Override
@@ -114,7 +114,7 @@ public class Convention {
         result = 31 * result + (version != null ? version.hashCode() : 0);
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (start != null ? start.hashCode() : 0);
-        result = 31 * result + (finish != null ? finish.hashCode() : 0);
+        result = 31 * result + (ending != null ? ending.hashCode() : 0);
         result = 31 * result + (df ? 1 : 0);
         return result;
     }
@@ -126,7 +126,7 @@ public class Convention {
                 ", version=" + version +
                 ", title='" + title + '\'' +
                 ", start=" + start +
-                ", end=" + finish +
+                ", end=" + ending +
                 ", df=" + df +
                 '}';
     }

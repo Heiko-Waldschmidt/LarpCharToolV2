@@ -1,0 +1,25 @@
+# application yaml which creates/overrides the database
+spring:
+  h2:
+    console.enabled: true
+  datasource:
+    #url: jdbc:h2:mem:testdb
+    url: jdbc:h2:~/LARPCharTool2Database/Database
+    username: sa
+    password:
+    # initialization: true
+    # initialization-mode: always
+  jpa:
+    generate-ddl: true # without this the tables are were not created - don't know why create-drop is not enough
+    hibernate.dll-auto: create-drop
+    show-sql: true
+    #defer-datasource-initialization: true
+    #database-platform: org.hibernate.dialect.H2Dialect
+server.port: 8080
+logging:
+  level:
+    #level: ERROR , WARN , INFO , DEBUG or TRACE
+    org:
+      springframework.web: ERROR
+      hibernate: INFO
+    hwaldschmidt.larpchartool: ERROR

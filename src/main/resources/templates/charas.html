@@ -4,11 +4,11 @@
 
     <title>Larp Char Tool</title>
 
-    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    <div th:replace="~{fragments/headerinc :: headerinc}"></div>
 </head>
 <body>
 <div class="container">
-    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:replace="~{fragments/header :: header}"></div>
     <div>
         <a href="#" th:href="@{/chara/new}" class="btn btn-default">Add Character</a>
     </div>

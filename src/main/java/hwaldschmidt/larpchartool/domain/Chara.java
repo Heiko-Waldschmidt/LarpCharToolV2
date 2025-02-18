@@ -1,6 +1,9 @@
 package hwaldschmidt.larpchartool.domain;
 
 import jakarta.persistence.*;
+import org.thymeleaf.expression.Lists;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,7 +16,7 @@ import java.util.Objects;
 public class Chara {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Version
@@ -23,7 +26,7 @@ public class Chara {
     private String name;
 
     @OneToMany(mappedBy = "chara", cascade = CascadeType.ALL)
-    private List<Visit> visits;
+    private List<Visit> visits = new ArrayList<>();
 
     public Integer getId() {
         return id;

@@ -85,7 +85,8 @@ public class CharaController {
 
     @GetMapping("chara/edit/{id}")
     public String editChara(@PathVariable Integer id, Model model){
-        model.addAttribute("chara", charaService.getCharaById(id));
+        Optional<Chara> optionalChara = charaService.getCharaById(id);
+        optionalChara.ifPresent(chara -> model.addAttribute("chara", chara));
         return "charaform";
     }
 
@@ -101,7 +102,8 @@ public class CharaController {
         return "redirect:/charas";
     }
 
-    @DeleteMapping("chara/delete/{id}")
+    // TODO: do i want to do this extra work and ugly thymeleaf to get it working with a DeleteMapping?
+    @GetMapping("chara/delete/{id}")
     public String deleteChara(@PathVariable Integer id){
         charaService.deleteChara(id);
         return "redirect:/charas";

@@ -3,6 +3,7 @@ package hwaldschmidt.larpchartool.domain;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,14 +16,14 @@ import java.util.Objects;
 public class Convention {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Version
     private Integer version;
 
     @OneToMany(mappedBy = "convention", cascade = CascadeType.ALL)
-    private List<Visit> visits;
+    private List<Visit> visits = new ArrayList<>();
 
     @Column(unique=true, nullable=false)
     private String title;
@@ -87,6 +88,10 @@ public class Convention {
 
     public List<Visit> getVisits() {
         return visits;
+    }
+
+    public void setVisits(List<Visit> visits) {
+        this.visits = visits;
     }
 
     // I don't compare the visits here ... this is to complicated ... I can't use a simple equals because of an endless

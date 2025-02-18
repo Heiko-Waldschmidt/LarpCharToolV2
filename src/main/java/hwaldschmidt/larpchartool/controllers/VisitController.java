@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 /**
  * Controller for all Views with a name beginning with "visit".
  * @author Heiko Waldschmidt
@@ -47,13 +49,15 @@ public class VisitController {
 
     @GetMapping("visit/{id}")
     public String showVisit(@PathVariable Integer id, Model model){
-        model.addAttribute("visit", visitService.getVisitById(id));
+        Optional<Visit> optionalVisit = visitService.getVisitById(id);
+        optionalVisit.ifPresent(visit -> model.addAttribute("visit", visit));
         return "visitshow";
     }
 
     @GetMapping("visit/edit/{id}")
     public String editVisit(@PathVariable Integer id, Model model){
-        model.addAttribute("visit", visitService.getVisitById(id));
+        Optional<Visit> optionalVisit = visitService.getVisitById(id);
+        optionalVisit.ifPresent(visit -> model.addAttribute("visit", visit));
         model.addAttribute("charas", charaService.listAllCharas());
         model.addAttribute("conventions", conventionService.listAllConventions());
         return "visitform";
@@ -91,7 +95,7 @@ public class VisitController {
     }
 
     // TODO check if this is working, browser may call get instead of delete
-    @DeleteMapping("visit/delete/{id}")
+    @GetMapping("visit/delete/{id}")
     public String deleteVisit(@PathVariable Integer id){
         logger.debug("visit id to delete " + id);
         visitService.deleteVisit(id);

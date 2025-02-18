@@ -14,7 +14,8 @@ spring:
     hibernate.dll-auto: create-drop
     show-sql: true
     #defer-datasource-initialization: true
-    #database-platform: org.hibernate.dialect.H2Dialect
+    # if no dialect is defined and Generation.Type Auto is used errors happen while using h2-Database
+    database-platform: org.hibernate.dialect.H2Dialect
 server.port: 8080
 logging:
   level:

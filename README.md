@@ -1,4 +1,4 @@
-# LARPCharToolV2
+# LARPCharToolV2 (not ready for usage)
 A tool for managing your LARP (Live Action Roleplay) characters.
 
 Current features:
@@ -15,5 +15,3 @@ If you are not a programmer and want to test the tool you need to do the followi
 3. execute: java -jar "jarfilename"
 4. open your browser
 5. open localhost:8080 in your browser.
- 
-Some time values are not working in some Browsers because they don't have implemented the HTML5 Datetime Element.
